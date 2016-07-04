@@ -1,0 +1,31 @@
+.Ntable{
+}
+
+.Ntable th{
+	 padding-left:5px !important;
+	 padding-right:5px !important;
+	 text-align:center; background:#f4f3f3; 
+}
+.Ntable{border-bottom: 1px solid #eeeeee !important;}
+.Ntable th, .Ntable td{font-size:13px; padding-top:5px !important; padding-bottom:5px !important;	 } 
+.Ntable td{text-align:center;}
+.smbtn{padding: 2px 8px;}
+.Nform{ border:1px #eee solid; margin-right:10px;}
+.mtop15{margin-top:15px;}
+.flt_left{float:left;}
+.flt_right{float:right;}
+.m0{margin:0 !important;}
+.mt20{margin-top:20px;}
+.Nform_date{border-left:1px #eee solid; border-top:1px #eee solid;  margin-right:10px;}
+.dtinput{width:110px !important; margin-right:0 !important;}
+.dataTables_paginate{margin-top:30px;}
+select option:first-child{color:#f00;}
+.breadcrumb{padding: 17px 15px; margin-bottom: 0px;}
+.app .main-container.nav-horizontal .content-container{margin-top: 147px;}
+.w200{width:220px !important;}
+.site-settings{right:-150px !important;}
+
+
+@media(max-width:768px){
+.page .page-wrap > .row{padding:0 0;}
+}
