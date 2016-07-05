@@ -32,7 +32,7 @@ if (Session::get('userPic') != '') {
         <li>
             <a href="{{URL::route('booking')}}">
                 <i class="ion ion-speakerphone"></i>
-                <span class="text">My Inquiries</span>
+                <span class="text">Manage address Book</span>
             </a>
         </li>
        

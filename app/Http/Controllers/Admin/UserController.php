@@ -88,16 +88,12 @@ class UserController extends Controller {
                 return redirect('/login');
             }
             
-            if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password'), 'enable_flag' => 1])) {
+            if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
                 // Authentication passed...
                 Session::put('userId', $users->id);
                 Session::put('userName', $users->first_name);
                 Session::put('userEmail', $users->email);
-                Session::put('userGroup', $users->user_group);
-                Session::put('userPic', $users->profile_pic);
-                Session::put('FollowupPopUpFlag', 1);
-                Session::put('userPhoneName',$users->agent_phone_name);
-                //dd($users);
+               
                 return redirect($this->redirectPath);
             } else {
                 Session::flash('flash_error', "The email and password you entered don't match.");

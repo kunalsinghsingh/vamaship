@@ -42,27 +42,20 @@ class BookingController extends Controller
     return view('admin.Booking.addBooking'); 
    
     }
+     public function edit($id)
+   {
+    
+    $user = $this->BookingRepo->find($id);
+
+    return view('admin.Booking.updateBooking',['user'=>$user]);
+   }
 
  public function update($id) {
         
-       
-        $User = Addressbook::find($id);
-         $saveProfile = new Addressbook();
-            $saveProfile->book_title = Input::get('book_title');
-            $saveProfile->name = Input::get('name');
-            $saveProfile->mobile = Input::get('mobile');
-            $saveProfile->address1 = Input::get('add1');
-            $saveProfile->address2 = Input::get('add2');
-            $saveProfile->address3 = Input::get('add3');
-            $saveProfile->pincode = Input::get('pincode');
-            $saveProfile->city = Input::get('city');
-            $saveProfile->state = Input::get('state'); 
-            
-            Session::flash('save', 'User Saved successfully');
-            $json_array['error'] = 'success';
-            $saveProfile->update();
-       
-        return view('admin/Booking/addBooking', ['user' => $User]);
+       $users = $this->BookingRepo->update($id);
+        
+    return redirect('/booking'); 
+      
     }
 
   public function save() {
@@ -109,9 +102,6 @@ class BookingController extends Controller
                 $saveProfile->save();
                 $user_id = $saveProfile->id;
             } 
-
-            
-            //$json_array['limit'] = Session::get('limit');
         }
 
 

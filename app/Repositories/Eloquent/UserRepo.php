@@ -18,7 +18,26 @@ class UserRepo Implements UserInterface
         $users = $this->getData();
         return $users;
     }
-    
+     public function getUserByAttribute() {
+        $query = User::orderBy('id', 'desc');
+        if ($this->email) {
+            $query->where('email', $this->email);
+        }
+        if ($this->id) {
+            $query->where('id', $this->id);
+        }
+        if ($this->mobile && $this->type) {
+            echo '454'.$this->mobile;
+            $query->where('mobile', trim($this->mobile));
+            $query->where('user_group', $this->type);
+        }
+        // if ($this->mobile) {
+        //     echo '36'
+        //     $query->where('mobile', trim($this->mobile));
+        // }
+        $result = $query->first();
+        return $result;
+    }
   
     public function getData($id = '', $email = '', $text = '') {
         
@@ -49,16 +68,12 @@ class UserRepo Implements UserInterface
         $user = new User;
         
         $user->mobile = $data['mobile'];
-        $user->user_group = $data['user_group'];
+       
         $user->status = 1;
         $user->save();
         return $user->id;
     }
     
-    public function getUserByProject($projectId) {
-    }
-    
-    public function getProjetByUser($userId) {
-    }
+   
 }
 ?>

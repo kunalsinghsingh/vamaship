@@ -6,9 +6,10 @@ interface UserInterface {
 
     public function getUsers();
 
+      public function getUserByAttribute();
    
 
-    public function createUser();
+    
 }
 
 ?>

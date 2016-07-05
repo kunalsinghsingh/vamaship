@@ -36,15 +36,29 @@ Route::get('/userListing', 'Admin\AdminUserController@userListing');
 Route::get('/profile', array('as' => 'profile', 'uses' => 'Admin\AdminProfileController@getUserProfile'));
 Route::get('/user', array('as' => 'user', 'uses' => 'Admin\AdminUserController@index'));
 
+
+
+
+
+
 //Manage Book Address
 Route::get('/booking', array('as' => 'booking', 'uses' => 'Admin\BookingController@index'));
 Route::get('/addbooking', array('as' => 'addbooking', 'uses' => 'Admin\BookingController@create'));
 Route::post('/booking/save', array('as' => 'addsave', 'uses' => 'Admin\BookingController@save'));
-Route::get('/booking/edit/{id?}', array('as' => 'editBooking', 'uses' => 'Admin\BookingController@update'));
+
+Route::get('/booking/edit/{id?}', array('as' => 'editBooking', 'uses' => 'Admin\BookingController@edit'));
+Route::post('/booking/update/{id?}', array('as' => 'update', 'uses' => 'Admin\BookingController@update'));
+
 Route::get('/booking/delete/{id?}', array('as' => 'bookingdelete', 'uses' => 'Admin\BookingController@delete'));
 
 
+
+
+
+
+
+
+
 //APIUserController
-
 Route::post('/api/v1/auth', array('as' => 'auth', 'uses' => 'API\APIAuthController@userAuthentication'));
-
+Route::get('/api/v1/getbook', array('as' => 'getbook', 'uses' => 'API\APIDataController@index'));
